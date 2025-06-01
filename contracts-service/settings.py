@@ -85,11 +85,11 @@ WSGI_APPLICATION = 'contracts-service.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DATABASE_NAME'),
-        'USER': os.environ.get('DATABASE_USER'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
-        'HOST': os.environ.get('DATABASE_HOST'),
-        'PORT': os.environ.get('DATABASE_PORT'),
+        'NAME': os.environ.get('PGDATABASE', 'account_db_kpsn'),  # fallback to your DB name
+        'USER': os.environ.get('PGUSER', 'thamer'),               # fallback username
+        'PASSWORD': os.environ.get('PGPASSWORD'),                  # *must be set in env*
+        'HOST': os.environ.get('PGHOST', 'dpg-d0tflpqdbo4c739ks99g-a'),  # your internal hostname
+        'PORT': os.environ.get('PGPORT', '5432'),                  # default postgres port
     }
 }
 
